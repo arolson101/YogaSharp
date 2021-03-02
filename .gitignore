@@ -7,3 +7,9 @@ x64_mac
 arm64_mac
 arm32_mac
 .DS_Store
+yoga/obj
+.vs
+*.ilk
+*.exp
+*.log
+*.lib
