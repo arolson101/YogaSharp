@@ -1017,7 +1017,7 @@ bool YGLayoutNodeInternal(
     const uint32_t depth,
     const uint32_t generationCount);
 
-#ifdef DEBUG
+//#ifdef DEBUG
 static void YGNodePrintInternal(
     const YGNodeRef node,
     const YGPrintOptions options) {
@@ -1031,7 +1031,7 @@ YOGA_EXPORT void YGNodePrint(
     const YGPrintOptions options) {
   YGNodePrintInternal(node, options);
 }
-#endif
+//#endif
 
 const std::array<YGEdge, 4> leading = {
     {YGEdgeTop, YGEdgeBottom, YGEdgeLeft, YGEdgeRight}};
@@ -4214,7 +4214,7 @@ YOGA_EXPORT void YGNodeCalculateLayoutWithContext(
         node->getLayout().direction(), ownerWidth, ownerHeight, ownerWidth);
     YGRoundToPixelGrid(node, node->getConfig()->pointScaleFactor, 0.0f, 0.0f);
 
-#ifdef DEBUG
+//#ifdef DEBUG
     if (node->getConfig()->printTree) {
       YGNodePrint(
           node,
@@ -4222,7 +4222,7 @@ YOGA_EXPORT void YGNodeCalculateLayoutWithContext(
               YGPrintOptionsLayout | YGPrintOptionsChildren |
               YGPrintOptionsStyle));
     }
-#endif
+//#endif
   }
 
   Event::publish<Event::LayoutPassEnd>(node, {layoutContext, &markerData});
@@ -4276,7 +4276,7 @@ YOGA_EXPORT void YGNodeCalculateLayoutWithContext(
           !nodeWithoutLegacyFlag->isLayoutTreeEqualToNode(*node);
       node->setLayoutDoesLegacyFlagAffectsLayout(neededLegacyStretchBehaviour);
 
-#ifdef DEBUG
+//#ifdef DEBUG
       if (nodeWithoutLegacyFlag->getConfig()->printTree) {
         YGNodePrint(
             nodeWithoutLegacyFlag,
@@ -4284,7 +4284,7 @@ YOGA_EXPORT void YGNodeCalculateLayoutWithContext(
                 YGPrintOptionsLayout | YGPrintOptionsChildren |
                 YGPrintOptionsStyle));
       }
-#endif
+//#endif
     }
     YGConfigFreeRecursive(nodeWithoutLegacyFlag);
     YGNodeFreeRecursive(nodeWithoutLegacyFlag);

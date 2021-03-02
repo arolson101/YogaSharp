@@ -7,7 +7,7 @@ OBJ_DIR32 := x86
 OBJ_DIR64 := x64
 OBJ_FILES32 := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR32)/%.o,$(SRC_FILES))
 OBJ_FILES64 := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR64)/%.o,$(SRC_FILES))
-LDFLAGS := -shared
+LDFLAGS := -shared -lc++
 CPPFLAGS := -fPIC -std=c++11
 
 ifeq ($(OS),Windows_NT)
