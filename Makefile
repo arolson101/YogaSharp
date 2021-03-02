@@ -1,4 +1,5 @@
 CC := g++
+LD := $(CC)
 FILENAME := yoga
 FILEENDING :=
 SRC_DIR := yoga
@@ -27,13 +28,13 @@ endif
 all: $(OBJ_DIR32)/$(FILENAME).$(FILEENDING) $(OBJ_DIR64)/$(FILENAME).$(FILEENDING)
 
 $(OBJ_DIR32)/$(FILENAME).$(FILEENDING): $(OBJ_FILES32)
-	$(CC) -m32 $(LDFLAGS) -o $@ $^
+	$(LD) $(LDFLAGS) -o $@ $^
 
 $(OBJ_DIR32)/%.o: $(SRC_DIR)/%.cpp
-	$(CC) -m32 $(CPPFLAGS) -c -o $@ $<
+	$(CC) $(CPPFLAGS) -c -o $@ $<
 
 $(OBJ_DIR64)/$(FILENAME).$(FILEENDING): $(OBJ_FILES64)
-	$(CC) -m64 $(LDFLAGS) -o $@ $^
+	$(LD) $(LDFLAGS) -o $@ $^
 
 $(OBJ_DIR64)/%.o: $(SRC_DIR)/%.cpp
-	$(CC) -m64 $(CPPFLAGS) -c -o $@ $<
+	$(CC) $(CPPFLAGS) -c -o $@ $<
